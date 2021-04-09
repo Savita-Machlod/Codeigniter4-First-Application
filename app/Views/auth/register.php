@@ -12,14 +12,14 @@
         <div class="row" style="margin-top:45px;">
             <div class="col-md-4 offset-md-4">
                 <h4>Sign Up</h4><hr>
-                <form action="<?= base_url('auth/save'); ?>" method="post">
+                <form action="<?= base_url('sellers/'); ?>" method="post">
                     <?= csrf_field(); ?>
                     <?php if(!empty(session()->getFlashdata('fail'))) : ?>
                         <div class="alert alert-danger"><?= session()->getFlashdata('fail');?></div>
-                    <?php endif ?>
+                    <?php endif; ?>
                     <?php if(!empty(session()->getFlashdata('success'))) : ?>
                         <div class="alert alert-success"><?= session()->getFlashdata('success');?></div>
-                    <?php endif ?>
+                    <?php endif; ?>
                     <div class="form-group mb-2">
                         <label for="">Name</label>
                         <input type="text" class="form-control" name="name" id="name" placeholder="Enter fullname" value="<?= set_value('name');?>">

@@ -18,7 +18,8 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+//$routes->setDefaultController('Home');
+$routes->setDefaultController('Employees');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -32,7 +33,13 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+//$routes->get('/', 'Home::index');
+
+$routes->get('/', 'Employees::index', ['filter' => 'noauth']);
+$routes->get('logout', 'Employees::logout');
+$routes->match(['get','post'],'register', 'Employees::register', ['filter' => 'noauth']);
+$routes->match(['get','post'],'profile', 'Employees::profile',['filter' => 'auth']);
+$routes->get('dashboard', 'Dashboard::index',['filter' => 'auth']);
 
 $routes->get('students', 'StudentController::index'); //student-table
 

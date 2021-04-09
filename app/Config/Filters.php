@@ -3,9 +3,15 @@
 namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
-use CodeIgniter\Filters\CSRF;
-use CodeIgniter\Filters\DebugToolbar;
-use CodeIgniter\Filters\Honeypot;
+
+/* Start - I have commented This Part - Savita */
+
+// use CodeIgniter\Filters\CSRF;
+// use CodeIgniter\Filters\DebugToolbar;
+// use CodeIgniter\Filters\Honeypot;
+// use CodeIgniter\App\Filters\Auth;
+
+/* End - I have commented This Part - Savita */
 
 class Filters extends BaseConfig
 {
@@ -16,9 +22,19 @@ class Filters extends BaseConfig
 	 * @var array
 	 */
 	public $aliases = [
-		'csrf'     => CSRF::class,
-		'toolbar'  => DebugToolbar::class,
-		'honeypot' => Honeypot::class,
+		'csrf'     => \CodeIgniter\Filters\CSRF::class,
+		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
+		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+		'auth'     => \App\Filters\Auth::class,
+		'noauth'     => \App\Filters\Noauth::class,
+		'employeescheck' => \App\Filters\EmployeesCheck::class,
+
+		
+		//'auth' => Auth::class,
+
+		//'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+		//'auth' => \App\Filters\Auth::class,
+		
 	];
 
 	/**
@@ -31,6 +47,7 @@ class Filters extends BaseConfig
 		'before' => [
 			// 'honeypot',
 			// 'csrf',
+			'employeescheck',
 		],
 		'after'  => [
 			'toolbar',
