@@ -35,7 +35,7 @@ class Database extends Config
 		'hostname' => 'http://localhost:8081',
 		'username' => 'root',
 		'password' => '',
-		'database' => 'codeigniter4',
+		'database' => 'codeigniter_4',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,

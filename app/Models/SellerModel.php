@@ -15,7 +15,14 @@
             'mobile_no',
             'name_of_employee',
             'landmark_nearby',
-            'location'
+            'city',
+            'state_district',
+            'state',
+            'country',
+            'latitude',
+            'longitude',
+            'formatted',
+            'timestamp'
         ];
     }  
 ?>

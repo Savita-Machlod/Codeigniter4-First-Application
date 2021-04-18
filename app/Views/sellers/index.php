@@ -18,26 +18,31 @@
                 <div class="card">
                     <div class="card-header">
                         <h5>Seller Information
-                        <div class="btn-group float-end" role="group" aria-label="Basic mixed styles example">
-                        <button class="btn btn-warning btn-sm" id="mybtn" onclick="CheckMyBrowser()" role="button">Add Location</button>
-                        <a href="<?= base_url('sellers/create'); ?>" class="btn btn-success btn-sm float-end">Add Seller</a>
-                        </div>
-
-                       
+                            <div class="btn-group float-end" role="group" aria-label="Basic mixed styles example">
+                                <a href="<?= base_url('sellers/create'); ?>" class="btn btn-warning btn-sm float-end nav-link">Add Seller</a>
+                            </div>
                         </h5>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered" id="users-list">
-                            <thead>
+                    <div class="table-responsive text-nowrap">
+                        <table class="table table-sm table-hover table-bordered border-primary table-fixed" id="users-list">
+                            <thead class="">
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name Of Organisation</th>
-                                    <th>Type Of Organisation</th>
+                                    <th>Name Of Org.</th>
+                                    <th>Type Of Org.</th>
                                     <th>Name Of Owner</th>
                                     <th>Mobile No.</th>
                                     <th>Name Of Employee</th>
                                     <th>Landmark Nearby</th>
-                                    <th>Location</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>State District</th>
+                                    <th>Country</th>
+                                    <th>Latitude</th>
+                                    <th>Longitude</th>
+                                    <th>Formatted</th>
+                                    <th>Timestamp</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -52,117 +57,41 @@
                                             <td><?php echo $row['mobile_no']; ?></td>
                                             <td><?php echo $row['name_of_employee']; ?></td>
                                             <td><?php echo $row['landmark_nearby']; ?></td>
-                                            <td><?php echo $row['location']; ?></td>
-                                            <td style="text-align:center;">
-                                                <a href="<?= base_url('seller/edit/'.$row['id']); ?>" class="btn btn-primary btn-sm">Edit</a>
-                                                <a href="<?= base_url('seller/delete/'.$row['id']); ?>" class="btn btn-danger btn-sm">Delete</a>
+                                            <td><?php echo $row['city']; ?></td>
+                                            <td><?php echo $row['state']; ?></td>
+                                            <td><?php echo $row['state_district']; ?></td>
+                                            <td><?php echo $row['country']; ?></td>
+                                            <td><?php echo $row['latitude']; ?></td>
+                                            <td><?php echo $row['longitude']; ?></td>
+                                            <td class="text-wrap text-wrap"><?php echo $row['formatted']; ?></td>
+                                            <td><?php echo $row['timestamp']; ?></td>
+                                            <td>
+                                               <!--  <a href="<?php //base_url('seller/edit/'.$row['id']); ?>" class="btn btn-primary btn-sm">Edit</a>
+                                                <a href="<?php //base_url('seller/delete/'.$row['id']); ?>" class="btn btn-danger btn-sm">Delete</a> -->
+
+
+                                                <a href="<?= base_url('seller/edit/'.$row['id']); ?>" class="btn btn-primary btn-sm">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+  <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+</svg>
+                                                </a>
+                                                <a href="<?= base_url('seller/delete/'.$row['id']); ?>" class="btn btn-danger btn-sm">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+</svg>
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
 
-
-
-        <!-- Location Form Field Starts Here-->
-        
-        <div class="card container  mt-4" style="display:none;" id="location">
-                <div class="card-header">
-                    <h5>Location Information
-                        <a href="<?= base_url('sellers')?>" class="btn btn-danger btn-sm float-end">CLOSE</a>
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <form action="" method="POST" id="myForm">
-                      
-                    
-                        
-                    </form>
-                </div>
-            </div>
-        <!-- Location Form Field Ends Here-->
-            </div>
-        </div>
+            </div> <!-- col-md-12 -->  
+        </div>    <!-- row -->                            
    </div>
-  
-<script> 
-         function CheckMyBrowser(){
-        if(navigator.geolocation){
-          
-           
-            navigator.geolocation.watchPosition(MyCoordinates,myerror);
-            
-        }
-        else{
-            alert("Your Browser Does Not Support Geo location Api");
-        }
-    }
-    function MyCoordinates(position){
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
 
-        var myapi="https://api.opencagedata.com/geocode/v1/json?q=" + latitude + "," + longitude +"&key=87f70e732bbd44d984f351fc57d3e4cc";
-       
-       $.get(myapi,function(data){
-         console.log(data);
-         $('#location').css('display', 'block');
-  document.getElementById("myForm").innerHTML +=
-  
-  `<div class="form-group mb-2 view">
-                <label><strong>Latitude:</strong></label>
-                <input type="text" value="${data.results[0].geometry.lat}" class="form-control">     
-            </div>
-            <div class="form-group mb-2 view">           
-                <label><strong>Longitude:</strong></label>
-                <input type="text" value="${data.results[0].geometry.lng}" class="form-control">
-            </div>
-         
-            <div class="form-group mb-2 view"> 
-            <label><strong>Country:</strong></label>
-            <input type="text" value="${data.results[0].components.country}" class="form-control">
-            </div>
-          <div class="form-group mb-2 view"> 
-            <label><strong>State:</strong></label>
-            <input type="text" value="${data.results[0].components.state}" class="form-control">
-            </div>
-          <div class="form-group mb-2 view"> 
-            <label><strong>City:</strong></label>
-            <input type="text" value="${data.results[0].components.city}" class="form-control">
-            </div>
-          <div class="form-group mb-2 view"> 
-            <label><strong>State District:</strong></label>
-            <input type="text" value="${data.results[0].components.state_district}" class="form-control">
-            </div>
-          <div class="form-group mb-2 view"> 
-            <label><strong>Formatted:</strong></label>
-            <input type="textarea" value="${data.results[0].formatted}" class="form-control">
-            </div>
-          <div class="form-group mb-2 view"> 
-            <label><strong>TimeStamp:</strong></label>
-            <input type="text" value="${data.timestamp.created_http}" class="form-control">
-            </div><hr>
-  `;          
-       });
-
-    }
-   
-    function myerror(error){
-      if(error.code=0){
-        alert("UNKNOWN_ERROR");
-      }
-      else if (error.code=1){
-        alert("PERMISSION_DENIED");
-      }
-      else if(error.code=2){
-        alert("POSITION_UNAVAILABLE");
-      }
-      else if(error.code=3){
-        alert("TIMEOUT");
-      }
-    }    	
-    
-    </script>
 <?= $this->endsection()?>

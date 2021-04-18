@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h5>Add Product Information
-                        <a href="<?= base_url('sellers')?>" class="btn btn-danger btn-sm float-end">BACK</a>
+                        <a href="<?= base_url('products')?>" class="btn btn-danger btn-sm float-end">BACK</a>
                     </h5>
                 </div>
                 <div class="card-body">

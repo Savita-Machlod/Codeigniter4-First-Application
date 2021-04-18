@@ -43,19 +43,25 @@ $routes->get('dashboard', 'Dashboard::index',['filter' => 'auth']);
 
 $routes->get('students', 'StudentController::index'); //student-table
 
-$routes->get('sellers', 'SellerController::index'); //sellers-table-view
-$routes->get('sellers/create', 'SellerController::create'); //sellers-table-insert
-$routes->post('sellers/add', 'SellerController::store'); //sellers-table-insert
-$routes->get('seller/edit/(:num)', 'SellerController::edit/$1'); //sellers-table-edit
-$routes->put('seller/update/(:num)', 'SellerController::update/$1'); //sellers-table-update
-$routes->get('seller/delete/(:num)', 'SellerController::delete/$1'); //sellers-table-delete
+$routes->get('sellers', 'SellerController::index',['filter' => 'auth']); //sellers-table-view
+$routes->get('sellers/create', 'SellerController::create',['filter' => 'auth']); //sellers-table-insert
+$routes->post('sellers/add', 'SellerController::store',['filter' => 'auth']); //sellers-table-insert
 
-$routes->get('products', 'ProductController::index'); //products-table
-$routes->get('products/create', 'ProductController::create'); //products-table-insert
-$routes->post('products/add', 'ProductController::store'); //products-table
-$routes->get('product/edit/(:num)', 'ProductController::edit/$1'); //products-table-edit
-$routes->put('product/update/(:num)', 'ProductController::update/$1'); //products-table-update
-$routes->get('product/delete/(:num)', 'ProductController::delete/$1'); //products-table-delete
+//$routes->post('sellers', 'LocationController::store',['filter' => 'auth']); //locations-table-insert
+
+$routes->get('seller/edit/(:num)', 'SellerController::edit/$1',['filter' => 'auth']); //sellers-table-edit
+$routes->put('seller/update/(:num)', 'SellerController::update/$1',['filter' => 'auth']); //sellers-table-update
+
+//$routes->post('seller/update/(:num)', 'SellerController::update/$1',['filter' => 'auth']); //sellers-table-update
+
+$routes->get('seller/delete/(:num)', 'SellerController::delete/$1',['filter' => 'auth']); //sellers-table-delete
+
+$routes->get('products', 'ProductController::index',['filter' => 'auth']); //products-table
+$routes->get('products/create', 'ProductController::create',['filter' => 'auth']); //products-table-insert
+$routes->post('products/add', 'ProductController::store',['filter' => 'auth']); //products-table
+$routes->get('product/edit/(:num)', 'ProductController::edit/$1',['filter' => 'auth']); //products-table-edit
+$routes->put('product/update/(:num)', 'ProductController::update/$1',['filter' => 'auth']); //products-table-update
+$routes->get('product/delete/(:num)', 'ProductController::delete/$1',['filter' => 'auth']); //products-table-delete
 
 
 //$routes->get('products', 'ProductController::index');
